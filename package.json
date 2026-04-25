@@ -16,9 +16,9 @@
   "scripts": {
     "build": "bun build ./index.ts --outdir ./dist",
     "test": "bun test",
-    "lint": "oxlint \"**/*.{js,ts}\"",
-    "format:check": "oxfmt --check \"**/*.{js,ts}\"",
-    "format:write": "oxfmt \"**/*.{js,ts}\""
+    "lint": "oxlint \"**/*.js\" \"**/*.ts\"",
+    "format:check": "oxfmt --check \"**/*.js\" \"**/*.ts\"",
+    "format:write": "oxfmt \"**/*.js\" \"**/*.ts\""
   },
   "dependencies": {
     "@rchapkailo/shared": "0.1.0-canary.04-25-2026-18-36-08Z.pr10"
