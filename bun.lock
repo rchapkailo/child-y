@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "child-y",
+      "dependencies": {
+        "@rchapkailo/shared": "0.1.0-canary.04-25-2026-18-36-08Z.pr10",
+      },
       "devDependencies": {
         "@types/bun": "latest",
       },
@@ -13,6 +16,8 @@
     },
   },
   "packages": {
+    "@rchapkailo/shared": ["@rchapkailo/shared@0.1.0-canary.04-25-2026-18-36-08Z.pr10", "https://npm.pkg.github.com/download/@rchapkailo/shared/0.1.0-canary.04-25-2026-18-36-08Z.pr10/db0e73800bea98bb7e61e00979ba74a55d3b2f4e", { "peerDependencies": { "typescript": "^5" } }, "sha512-nkkTcjSbiLu/RPKmnU4ktqzC/JRTD7EyNhLOf6H2di2E9oBqgx+Ln8TXpsSgWVQ/OhbWLJS180g94lRfvCIbtQ=="],
+
     "@types/bun": ["@types/bun@1.3.13", "", { "dependencies": { "bun-types": "1.3.13" } }, "sha512-9fqXWk5YIHGGnUau9TEi+qdlTYDAnOj+xLCmSTwXfAIqXr2x4tytJb43E9uCvt09zJURKXwAtkoH4nLQfzeTXw=="],
 
     "@types/node": ["@types/node@25.6.0", "", { "dependencies": { "undici-types": "~7.19.0" } }, "sha512-+qIYRKdNYJwY3vRCZMdJbPLJAtGjQBudzZzdzwQYkEPQd+PJGixUL5QfvCLDaULoLv+RhT3LDkwEfKaAkgSmNQ=="],
