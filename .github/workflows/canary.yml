@@ -1,6 +1,7 @@
 name: Canary Release
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - closed
@@ -11,14 +12,13 @@ permissions:
 
 jobs:
   publish-canary:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out merge commit
         uses: actions/checkout@v6
         with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
           fetch-depth: 0
 
       - name: Set up Node
@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: lts/*
           registry-url: https://npm.pkg.github.com
+          scope: '@rchapkailo'
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2.2.0
@@ -42,7 +43,7 @@ jobs:
 
       - name: Stamp canary version
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ github.event.pull_request.number || github.run_number }}
         run: |
           node <<'NODE'
           const fs = require('fs');
