@@ -1,9 +1,11 @@
 import { describe, expect, it } from "bun:test";
 
-import { getRepoName } from "./index";
+import { getRepoInfo } from "./index";
 
-describe("getRepoName", () => {
-  it("returns child-y", () => {
-    expect(getRepoName()).toBe("child-y");
+describe("getRepoInfo", () => {
+  it("returns repo info for child-y", () => {
+    const info = getRepoInfo();
+    expect(info.name).toBe("child-y");
+    expect(info.deps).toEqual(["@rchapkailo/shared"]);
   });
 });
